@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED"> <!-- POOLED 데이터베이스 커넥션을 미리 만들어두고 필요할 때마다 재사용 (성능 최적화 + 리소스 효율적 관리)-->
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/menudb"/>
+                <property name="username" value="songpa"/>
+                <property name="password" value="songpa"/>
+
+            </dataSource>
+        </environment>
+    </environments>
+</configuration>
