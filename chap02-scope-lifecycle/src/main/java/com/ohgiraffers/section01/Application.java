@@ -10,6 +10,5 @@ public class Application {
         System.out.println(getSqlSession().hashCode());
         System.out.println(getSqlSession().hashCode());
 
-
     }
 }
