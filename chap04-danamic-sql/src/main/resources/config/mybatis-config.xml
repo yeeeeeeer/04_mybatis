@@ -6,6 +6,7 @@
 <!--환경정보 넣기-->
 <configuration>
     <typeAliases>
+        <!-- alias 이름을 지어줌 -->
     <typeAlias type="com.ohgiraffers.common.SearchCriteria" alias="SearchCriteria"/>
     </typeAliases>
 

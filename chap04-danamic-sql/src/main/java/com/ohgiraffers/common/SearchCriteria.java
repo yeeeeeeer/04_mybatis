@@ -3,8 +3,8 @@ package com.ohgiraffers.common;
 // 검색 기준과 내용을 담을 객체
 public class SearchCriteria {
 
-    private String condition; // 검색기준
-    private String value; // 내용
+    private String condition; // 검색기준(카테고리)
+    private String value; // 내용(메뉴이름)
 
     public SearchCriteria() {
     }
