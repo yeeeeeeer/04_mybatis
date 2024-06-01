@@ -13,6 +13,7 @@ public class ElementTestService {
 
     public void selectCacheTest() {
 
+        // Sqlsession : 쿼리 실행, 트랜잭션 관리 등을 하는 인터페이스
         SqlSession sqlSession = Template.getSqlSession();
         mapper = sqlSession.getMapper(ElementTestMapper.class);
 
@@ -88,5 +89,38 @@ public class ElementTestService {
     }
 
 
+    public void insertMenuTset(MenuDTO menuDTO) {
 
+        SqlSession sqlSession = Template.getSqlSession();
+        mapper = sqlSession.getMapper(ElementTestMapper.class);
+
+        // insert의 결과는 int
+        int result = mapper.insertMenuTset(menuDTO);
+
+        if(result > 0){
+            System.out.println("메뉴 등록 성공!");
+            sqlSession.rollback();
+        }
+        sqlSession.close();
+
+    }
+
+    public void insertCategoryAndMenuTest(MenuAndCategoryDTO menuAndCategoryDTO) {
+
+        SqlSession sqlSession = Template.getSqlSession();
+        mapper = sqlSession.getMapper(ElementTestMapper.class);
+
+        int result1 = mapper.insertNewCategory(menuAndCategoryDTO);
+        int result2 = mapper.insertNewMenu(menuAndCategoryDTO);
+
+        if(result1 > 0 && result2 > 0){
+            System.out.println("신규 카테고리와 메뉴 등록 성공");
+            sqlSession.commit();
+        }else{
+            System.out.println("신규 카테고리와 메뉴 등록 실패");
+            sqlSession.rollback();
+        }
+        sqlSession.close();
+
+    }
 }
